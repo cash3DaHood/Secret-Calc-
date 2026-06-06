@@ -2,14 +2,13 @@
   "name": "aw3-secret-calculator",
   "version": "1.0.0",
   "private": true,
-  "description": "Anime Warriors III Secret Calculator — server (accounts, leaderboard, community, anti-cheat)",
+  "description": "Anime Warriors III Secret Calculator — site + API (accounts, leaderboard, clicker sync, anti-cheat)",
   "type": "commonjs",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
