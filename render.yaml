@@ -1,0 +1,22 @@
+# Render Blueprint — deploy in a few clicks.
+# In Render:  New +  →  Blueprint  →  pick your repo  →  Apply.
+# It builds the server, generates a JWT secret, and (optionally) wires Upstash.
+services:
+  - type: web
+    name: aw3-secret-calculator
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true          # Render makes a strong random secret for you
+      # Free, persistent storage (recommended on the free plan — the free disk is wiped on
+      # redeploys). Create a free Upstash Redis DB and paste its REST URL + token when prompted.
+      # Leave both blank to fall back to a local data.json file instead.
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
